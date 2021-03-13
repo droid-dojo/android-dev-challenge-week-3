@@ -36,6 +36,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.R
+import com.example.androiddevchallenge.ui.Screen
 import com.example.androiddevchallenge.ui.common.LargeButton
 import com.example.androiddevchallenge.ui.theme.MySootheTheme
 
@@ -72,7 +73,7 @@ fun WelcomeContent(
         LargeButton(
             wording = R.string.login,
             backgroundColor = MaterialTheme.colors.secondary,
-            onClick = { navController.navigate("login") }
+            onClick = { navController.navigate(Screen.Login.route) }
         )
     }
 }

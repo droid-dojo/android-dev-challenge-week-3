@@ -49,25 +49,31 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.R
+import com.example.androiddevchallenge.ui.Screen
 import com.example.androiddevchallenge.ui.common.LargeButton
 import com.example.androiddevchallenge.ui.theme.MySootheTheme
 
 @Composable
-fun LoginScreen(darkTheme: Boolean = isSystemInDarkTheme()) {
+fun LoginScreen(darkTheme: Boolean = isSystemInDarkTheme(), navController: NavHostController) {
     Box(modifier = Modifier.fillMaxSize()) {
         LoginBackground(darkTheme)
         LoginContent(
             modifier = Modifier
                 .padding(16.dp)
                 .fillMaxWidth()
-                .align(Alignment.Center)
+                .align(Alignment.Center),
+            navController = navController
         )
     }
 }
 
 @Composable
-fun LoginContent(modifier: Modifier = Modifier) {
+fun LoginContent(modifier: Modifier = Modifier, navController: NavController) {
     Column(modifier = modifier) {
         Text(
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -88,7 +94,7 @@ fun LoginContent(modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.size(8.dp))
         LargeButton(
             wording = R.string.login,
-            onClick = { /*TODO*/ }
+            onClick = { navController.navigate(Screen.Home.route) }
         )
 
         Row(
@@ -145,7 +151,7 @@ fun LoginBackground(darkTheme: Boolean = isSystemInDarkTheme()) {
 fun LightPreview() {
     MySootheTheme {
         Surface(color = MaterialTheme.colors.background) {
-            LoginScreen()
+            LoginScreen(navController = rememberNavController())
         }
     }
 }
@@ -155,7 +161,7 @@ fun LightPreview() {
 fun DarkPreview() {
     MySootheTheme(darkTheme = true) {
         Surface(color = MaterialTheme.colors.background) {
-            LoginScreen(darkTheme = true)
+            LoginScreen(darkTheme = true, navController = rememberNavController())
         }
     }
 }

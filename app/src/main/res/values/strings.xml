@@ -15,4 +15,11 @@
     <string name="email">Email address</string>
     <string name="password">Password</string>
     <string name="no_account">Don\'t have an account?</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="welcome">Welcome</string>
+    <string name="search">Search</string>
+    <string name="favorite_collections">Favorite Collections</string>
+    <string name="align_your_body">Align your body</string>
+    <string name="align_your_mind">Align your mind</string>
 </resources>
